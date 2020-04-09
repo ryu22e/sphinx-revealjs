@@ -1,13 +1,11 @@
 name: Deploy packages to test-pypi
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v1
       - name: Set up Python
         uses: actions/setup-python@v1
