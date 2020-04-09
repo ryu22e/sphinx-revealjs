@@ -20,4 +20,8 @@ jobs:
           poetry build
       - name: Publish test pypi
         run: |
-          ls -l dist
+          poetry config http-basic.testpypi $PYPI_USERNAME $PYPI_PASSWORD 
+          poetry publish -r testpypi
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
