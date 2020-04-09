@@ -20,6 +20,7 @@ jobs:
           poetry build
       - name: Publish test pypi
         run: |
+          poetry config repositories.testpypi https://test.pypi.org/legacy/
           poetry config http-basic.testpypi $PYPI_USERNAME $PYPI_PASSWORD 
           poetry publish -r testpypi
         env:
