@@ -4,22 +4,14 @@ on:
   push:
     branches:
       - master
-    paths:
-      - sphinx_revealjs/**
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-python@v1
+      - uses: abatilo/actions-poetry@v1.5.0
         with:
-          python-version: 3.7
-      - run: |
-          python tools/bump_post_version.py
-      - name: Deploy packages to Test-PyPI
-        uses: docker://plugins/pypi
-        env:
-          PLUGIN_REPOSITORY: https://test.pypi.org/legacy/
-          PLUGIN_USERNAME: ${{ secrets.PYPI_USERNAME }}
-          PLUGIN_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+          python_version: 3.8.0
+          poetry_version: 1.0.2
+          args: --help
