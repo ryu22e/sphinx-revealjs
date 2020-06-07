@@ -40,4 +40,4 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
         self.assertIn("_static/revealjs/css/theme/black.css", links)
 
     def test_title(self):  # noqa
-        self.assertEqual("sphinx-revealjs", self.soup.title)
+        self.assertEqual("sphinx-revealjs", self.soup.title.text)
