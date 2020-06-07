@@ -1,4 +1,7 @@
-"""Integrationaly tests by demo."""
+"""Integrationaly tests by demo.
+
+This suite test behavior of over-all by demo presentation.
+"""
 import unittest
 
 from sphinx_testing import TestApp
@@ -35,3 +38,6 @@ class DemoMakeTesting(unittest.TestCase):  # noqa
     def test_stylesheet(self):  # noqa
         links = [l["href"] for l in self.soup.find_all("link", rel="stylesheet")]
         self.assertIn("_static/revealjs/css/theme/black.css", links)
+
+    def test_title(self):  # noqa
+        self.assertEqual("sphinx-revealjs", self.soup.title)
