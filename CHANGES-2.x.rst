@@ -14,3 +14,4 @@ Features
 Dropped
 -------
 
+* Remove all snake-case directives (#65)
