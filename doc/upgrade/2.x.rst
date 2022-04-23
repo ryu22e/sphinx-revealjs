@@ -4,3 +4,31 @@ Upgrading from 1.x to 2.x
 
 From 2.x, some features are removed because splitted other extensions or duplicated behaviors.
 If you want to use new version by documentation using 1.x, you should upgrade project files.
+
+Bundled configuration for Google Fonts
+======================================
+
+Using Google Fonts
+------------------
+
+Google Fonts is provided as CSS.
+You can add `revealjs_css_files` directly it and write custom CSS file.
+
+.. code-block:: python
+
+   revealjs_css_files = [
+       "https://fonts.googleapis.com/css2?family=Noto+Sans+JP",
+       "custom.css",
+   ]
+
+.. code-block:: css
+
+   .reveal *, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+     font-family: 'Noto Sans JP', sans-serif;
+   }
+
+Alternation for directive
+-------------------------
+
+When you use ``google_font`` attribute in ``revealjs-slide`` directive,
+You need to create custom theme.
